@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            var input, filter, ul, li, a, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myUL");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+        </script>
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            #myInput {
+              background-image: url('/css/searchicon.png');
+              /* background-position: 10px 12px; */
+              background-repeat: no-repeat;
+              width: 100%;
+              font-size: 16px;
+              padding: 12px 20px 12px 40px;
+              border: 1px solid #ddd;
+              margin-bottom: 12px;
+            }
+            
+            #myUL {
+              list-style-type: none;
+              padding: 0;
+              margin: 0;
+              width: 100%;
+            }
+            
+            #myUL li a {
+              border: 1px solid #ddd;
+              margin-top: -1px; /* Prevent double borders */
+              background-color: #f6f6f6;
+              padding: 12px;
+              text-decoration: none;
+              font-size: 18px;
+              color: black;
+              display: block
+            }
+            
+            #myUL li a:hover:not(.header) {
+              background-color: #eee;
+            }
+            </style>
+ <style>
+    .my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    width: 50%;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+    </style>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Condensed:400|Roboto+Mono:300,400,400i,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="general.css">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#252B29"/>
+
+    <!--SEO Stuff-->
+    <meta name="google-site-verification" content="hrI3XLLbme1o6gHxfAt4wMY3XIZnHVx3C9HiW5fY9xg" />
+    <meta name="description" content="A fully-featured 8085 Simulator and Assembler for web browsers. Run or step through your code, generate Hex listings, assemble programs and more."/>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width">
+    <div class=" bd-brand-item inverse">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="utils.css" rel="stylesheet" type="text/css" />
+    <title>DEI 8085</title>
+</head>
+
+<body>
+    <div class="blockquote text-center" style="color: black;">
+        <h3>Dayalbagh Educational Institute</h3>
+        <h4>(Deemed To Be University)</h4>
+        <h4>Dayalbagh, Agra</h4>
+        <h5><b>DEI 8085 SIMULATOR</b></h5>
+
+    </div>
+
+    <hr style="border-top: 1mm solid black ;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="https://www.dei.ac.in/dei/">DEI Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="https://drive.google.com/file/d/1712QceV6KLezHFJ_fu5OL1uqZEt27GDF/view?usp=sharing">Manual</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://drive.google.com/file/d/1I6ezAl3fny5hRgkgx5al009Od8AE3pfW/view?usp=sharing">Instructions</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dei Students
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">DEI FOE</a></li>
+                <li><a class="dropdown-item" href="https://exam.dei.ac.in/">DEI EXAM</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="http://admission.dei.ac.in:8085/cms_new">DEI CMS</a></li>
+              </ul>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <div class="container-xl text-center"> -->
+      <div class="row">
+        <div class="col">
+          <div class="row" style="position: relative ;">
+            <input class="disp" id="disp" type="text"/>
+            <input class="disp" id="disp1" type="text"/>
+          </div>
+          <div class="register-buttons--container">
+            <div class="extra-buttons--container">
+              <input type="button" value="RESET"class="extra-button" onclick="clear1()" id="button-RES"> 
+              <input type="button" value="VCT" class="extra-button" id="button-INR">
+              
+              <input type="button" value="EXREG" class="extra-button" id="button-REG">
+              <input type="button" value="INS" class="extra-button" id="button-REG">
+              <input type="button" value="GO" class="extra-button" onclick="gobtn();" id="button-SET"> 
+              <input type="button" value="B.M" class="extra-button" id="button-DCR">
+              <input type="button" value="PRE" class="extra-button" id="button-EXEC">
+              <input type="button" value="NEXT" onclick="nextbtn()" class="extra-button" id="button-STEP">
+            </div>
+            <div class="extra-buttons--container1">
+	      <input type="button" value="SHIFT" class="extra-button" id="button-GO">
+              <input type="button" value="DEL" class="extra-button" id="button-INR">
+              <input type="button" value="EXMEM" onclick="exmembtn();" class="extra-button" id="button-RES">
+              <input type="button" value="FILL." onclick="fillbtn()" class="extra-button" id="button-REG">
+        
+            </div>
+            <div class="keypad-buttons--container">
+              <input type="button" value= "C" onclick="dispOrdisp1(this.value)"class="keypad-button" ontouch="fix" id="button-C">
+              <input type="button" value= "D" onclick="dispOrdisp1(this.value)"class="keypad-button" onfocus="blur()" id="button-D">
+              <input type="button" value= "E" onclick="dispOrdisp1(this.value)"class="keypad-button" onfocus="blur()" id="button-E">
+              <input type="button" value= "F" onclick="dispOrdisp1(this.value)"class="keypad-button" onfocus="blur()" id="button-F">
+              <input type="button" value= "8"onclick="dispOrdisp1(this.value)" class="keypad-button" onfocus="blur()" id="button-8">
+              <input type="button" value= "9" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-9">
+              <input type="button" value= "A" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-A">
+              <input type="button" value= "B" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-B">
+              <input type="button" value= "4" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-4">
+              <input type="button" value= "5"onclick="dispOrdisp1(this.value)" class="keypad-button" id="button-5">
+              <input type="button" value= "6" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-6">
+              <input type="button" value= "7"onclick="dispOrdisp1(this.value)" class="keypad-button" id="button-7">
+              <input type="button" value= "0" onclick="dispOrdisp1(this.value)" class="keypad-button" id="button-0">
+              <input type="button" value= "1" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-1">
+              <input type="button" value= "2" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-2">
+              <input type="button" value= "3" onclick="dispOrdisp1(this.value)"class="keypad-button" id="button-3">
+            </div>
+            
+            
+          </div>
+        </div>
+        <div class="col">
+          <div class="table-wrapper-scroll-y my-custom-scrollbar" style = "width: 100%; position: relative; align-items: center; height: 500px;">
+            <ul id="myUL">
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Mnemonics or Opcode .." title="Type in a name">
+          
+                <ul id="myUL">
+                 
+                  <li><a href="#">	&nbspMnemonics , Opcode , Bytes	</a></li>
+                  <li><a href="#">	&nbsp	ACI Data	&nbsp	&nbsp	CE	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	ADC A	&nbsp	&nbsp	8F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC B	&nbsp	&nbsp	88	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC C	&nbsp	&nbsp	89	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC D	&nbsp	&nbsp	8A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC E	&nbsp	&nbsp	8B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC H	&nbsp	&nbsp	8C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC L	&nbsp	&nbsp	8D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADC M	&nbsp	&nbsp	8E	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD A	&nbsp	&nbsp	87	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD B	&nbsp	&nbsp	80	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD C	&nbsp	&nbsp	81	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD D	&nbsp	&nbsp	82	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD E	&nbsp	&nbsp	83	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD H	&nbsp	&nbsp	84	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD L	&nbsp	&nbsp	85	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADD M	&nbsp	&nbsp	86	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ADI Data &nbsp	&nbsp	C6	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	ANA A	&nbsp	&nbsp	A7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA B	&nbsp	&nbsp	A0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA C	&nbsp	&nbsp	A1	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA D	&nbsp	&nbsp	A2	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA E	&nbsp	&nbsp	A3	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA H	&nbsp	&nbsp	A4	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA L	&nbsp	&nbsp	A5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANA M	&nbsp	&nbsp	A6	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ANI Data &nbsp	&nbsp	E6	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	CALL Address &nbsp	&nbsp	CD	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CC 	&nbsp	&nbsp	DC	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CM 	&nbsp	&nbsp	FC	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CMA	&nbsp	&nbsp	2F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMC	&nbsp	&nbsp	3F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP A	&nbsp	&nbsp	BF	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP B	&nbsp	&nbsp	B8	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP C	&nbsp	&nbsp	B9	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP D	&nbsp	&nbsp	BA	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP E	&nbsp	&nbsp	BB	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP H	&nbsp	&nbsp	BC	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP L	&nbsp	&nbsp	BD	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CMP M	&nbsp	&nbsp	BD	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	CNC 	&nbsp	&nbsp	D4	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CNZ Address &nbsp	&nbsp	C4	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CP Address &nbsp	&nbsp	F4	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CPE Address &nbsp	&nbsp	EC	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CPI  Data	&nbsp	&nbsp	FE	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	CPO Address &nbsp	&nbsp	E4	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	CZ Address &nbsp	&nbsp	CC	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	DAA	&nbsp	&nbsp	27	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DAD B	&nbsp	&nbsp	9	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DAD D	&nbsp	&nbsp	19	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DAD H	&nbsp	&nbsp	29	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DAD SP	&nbsp	&nbsp	39	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR A	&nbsp	&nbsp	3D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR B	&nbsp	&nbsp	5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR C	&nbsp	&nbsp	0D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR D	&nbsp	&nbsp	15	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR E	&nbsp	&nbsp	1D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR H	&nbsp	&nbsp	25	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR L	&nbsp	&nbsp	2D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCR M	&nbsp	&nbsp	35	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCX B	&nbsp	&nbsp	0B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCX D	&nbsp	&nbsp	1B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCX H	&nbsp	&nbsp	2B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DCX SP	&nbsp	&nbsp	3B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	DI	&nbsp	&nbsp	F3	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	EI	&nbsp	&nbsp	FB	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	HLT	&nbsp	&nbsp	76	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	IN Port-address	&nbsp	&nbsp	DB	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	INR A	&nbsp	&nbsp	3C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR B	&nbsp	&nbsp	4	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR C	&nbsp	&nbsp	0C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR D	&nbsp	&nbsp	14	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR E	&nbsp	&nbsp	1C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR H	&nbsp	&nbsp	24	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR L	&nbsp	&nbsp	2C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INR M	&nbsp	&nbsp	34	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INX B	&nbsp	&nbsp	3	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INX D	&nbsp	&nbsp	13	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INX H	&nbsp	&nbsp	23	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	INX SP	&nbsp	&nbsp	33	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	JC Address &nbsp	&nbsp	DA	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JM Address &nbsp	&nbsp	FA	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp Address &nbsp	&nbsp	C3	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JNC Address &nbsp	&nbsp	D2	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JNZ Address &nbsp	&nbsp	C2	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JP Address &nbsp	&nbsp	F2	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JPE Address &nbsp	&nbsp	EA	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JPO Address &nbsp	&nbsp	E2	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	JZ Address &nbsp	&nbsp	CA	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	LDA Address	&nbsp	&nbsp	3A	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	LDAX B	&nbsp	&nbsp	0A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	LDAX D	&nbsp	&nbsp	1A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">  &nbsp	LHLD Address &nbsp	&nbsp	2A	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	LXI B	&nbsp	&nbsp	1	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	LXI D Address	&nbsp	&nbsp	11	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">  &nbsp	LXI H	&nbsp	&nbsp	21	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	LXI SP	&nbsp	&nbsp	31	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, A	&nbsp	&nbsp	7F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, B	&nbsp	&nbsp	78	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, C	&nbsp	&nbsp	79	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, D	&nbsp	&nbsp	7A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, E	&nbsp	&nbsp	7B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, H	&nbsp	&nbsp	7C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, L	&nbsp	&nbsp	7D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV A, M	&nbsp	&nbsp	7E	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, A	&nbsp	&nbsp	47	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, B	&nbsp	&nbsp	40	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, C	&nbsp	&nbsp	41	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, D	&nbsp	&nbsp	42	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, E	&nbsp	&nbsp	43	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, H	&nbsp	&nbsp	44	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, L	&nbsp	&nbsp	45	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV B, M	&nbsp	&nbsp	46	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, A	&nbsp	&nbsp	4F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, B	&nbsp	&nbsp	48	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, C	&nbsp	&nbsp	49	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, D	&nbsp	&nbsp	4A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, E	&nbsp	&nbsp	4B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, H	&nbsp	&nbsp	4C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, L	&nbsp	&nbsp	4D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV C, M	&nbsp	&nbsp	4E	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, A	&nbsp	&nbsp	57	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, B	&nbsp	&nbsp	50	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, C	&nbsp	&nbsp	51	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, D	&nbsp	&nbsp	52	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, E	&nbsp	&nbsp	53	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, H	&nbsp	&nbsp	54	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, L	&nbsp	&nbsp	55	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV D, M	&nbsp	&nbsp	56	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, A	&nbsp	&nbsp	5F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, B	&nbsp	&nbsp	58	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, C	&nbsp	&nbsp	59	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, D	&nbsp	&nbsp	5A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, E	&nbsp	&nbsp	5B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, H	&nbsp	&nbsp	5C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, L	&nbsp	&nbsp	5D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV E, M	&nbsp	&nbsp	5E	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, A	&nbsp	&nbsp	67	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, B	&nbsp	&nbsp	60	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, C	&nbsp	&nbsp	61	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, D	&nbsp	&nbsp	62	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, E	&nbsp	&nbsp	63	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, H	&nbsp	&nbsp	64	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, L	&nbsp	&nbsp	65	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV H, M	&nbsp	&nbsp	66	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, A	&nbsp	&nbsp	6F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, B	&nbsp	&nbsp	68	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, C	&nbsp	&nbsp	69	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, D	&nbsp	&nbsp	6A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, E	&nbsp	&nbsp	6B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, H	&nbsp	&nbsp	6C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, L	&nbsp	&nbsp	6D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV L, M	&nbsp	&nbsp	6E	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, A	&nbsp	&nbsp	77	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, B	&nbsp	&nbsp	70	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, C	&nbsp	&nbsp	71	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, D	&nbsp	&nbsp	72	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, E	&nbsp	&nbsp	73	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, H	&nbsp	&nbsp	74	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MOV M, L	&nbsp	&nbsp	75	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	MVI A, Data	&nbsp	&nbsp	3E	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI B, Data	&nbsp	&nbsp	6	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI C, Data	&nbsp	&nbsp	0E	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI D, Data	&nbsp	&nbsp	16	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI E, Data	&nbsp	&nbsp	1E	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI H, Data	&nbsp	&nbsp	26	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI L, Data	&nbsp	&nbsp	2E	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	MVI M, Data	&nbsp	&nbsp	36	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	NOP	&nbsp	&nbsp	0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA A	&nbsp	&nbsp	B7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA B	&nbsp	&nbsp	B0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA C	&nbsp	&nbsp	B1	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA D	&nbsp	&nbsp	B2	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA E	&nbsp	&nbsp	B3	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA H	&nbsp	&nbsp	B4	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA L	&nbsp	&nbsp	B5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORA M	&nbsp	&nbsp	B6	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	ORI Data	&nbsp	&nbsp	F6	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	OUT Port-Address &nbsp	&nbsp	D3	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	PCHL	&nbsp	&nbsp	E9	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	POP B	&nbsp	&nbsp	C1	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	POP D	&nbsp	&nbsp	D1	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	POP H	&nbsp	&nbsp	E1	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	POP PSW	&nbsp	&nbsp	F1	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	PUSH B	&nbsp	&nbsp	C5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	PUSH D	&nbsp	&nbsp	D5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	PUSH H	&nbsp	&nbsp	E5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	PUSH PSW	&nbsp	&nbsp	F5	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RAL	&nbsp	&nbsp	17	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RAR	&nbsp	&nbsp	1F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RC	&nbsp	&nbsp	D8	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RET	&nbsp	&nbsp	C9	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RIM	&nbsp	&nbsp	20	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RLC	&nbsp	&nbsp	7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RM	&nbsp	&nbsp	F8	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RNC	&nbsp	&nbsp	D0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RNZ	&nbsp	&nbsp	C0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RP	&nbsp	&nbsp	F0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RPE	&nbsp	&nbsp	E8	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RPO	&nbsp	&nbsp	E0	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RRC	&nbsp	&nbsp	0F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 0	&nbsp	&nbsp	C7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 1	&nbsp	&nbsp	CF	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 2	&nbsp	&nbsp	D7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 3	&nbsp	&nbsp	DF	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 4	&nbsp	&nbsp	E7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 5	&nbsp	&nbsp	EF	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 6	&nbsp	&nbsp	F7	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RST 7	&nbsp	&nbsp	FF	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	RZ	&nbsp	&nbsp	C8	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB A	&nbsp	&nbsp	9F	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB B	&nbsp	&nbsp	98	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB C	&nbsp	&nbsp	99	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB D	&nbsp	&nbsp	9A	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB E	&nbsp	&nbsp	9B	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB H	&nbsp	&nbsp	9C	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB L	&nbsp	&nbsp	9D	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBB M	&nbsp	&nbsp	9E	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SBI Data	&nbsp	&nbsp	DE	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	SHLD Address &nbsp	&nbsp	22	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	SIM	&nbsp	&nbsp	30	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SPHL	&nbsp	&nbsp	F9	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	STA Address	&nbsp	&nbsp	32	&nbsp	&nbsp	3	</a></li>
+                  <li><a href="#">	&nbsp	STAX B	&nbsp	&nbsp	2	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	STAX D	&nbsp	&nbsp	12	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	STC	&nbsp	&nbsp	37	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB A	&nbsp	&nbsp	97	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB B	&nbsp	&nbsp	90	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB C	&nbsp	&nbsp	91	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB D	&nbsp	&nbsp	92	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB E	&nbsp	&nbsp	93	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB H	&nbsp	&nbsp	94	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB L	&nbsp	&nbsp	95	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUB M	&nbsp	&nbsp	96	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	SUI Data	&nbsp	&nbsp	D6	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	XCHG	&nbsp	&nbsp	EB	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA A	&nbsp	&nbsp	AF	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA B	&nbsp	&nbsp	A8	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA C	&nbsp	&nbsp	A9	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA D	&nbsp	&nbsp	AA	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA E	&nbsp	&nbsp	AB	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA H	&nbsp	&nbsp	AC	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA L	&nbsp	&nbsp	AD	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRA M	&nbsp	&nbsp	AE	&nbsp	&nbsp	1	</a></li>
+                  <li><a href="#">	&nbsp	XRI Data &nbsp	&nbsp	EE	&nbsp	&nbsp	2	</a></li>
+                  <li><a href="#">	&nbsp	XTHL	&nbsp	&nbsp	E3	&nbsp	&nbsp	1	</a></li>
+                
+          </ul>
+              </ul>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+     <!-- <img src="kit.png" style="width:40%;height:40%; position:relative; left:0%; top:2px;"> -->
+     <div>
+      
+      <script src="MemoryMap.js"></script>
+     
+
+    </div>
+    
+
+    </body>
+
+
+</html>
